@@ -1,9 +1,10 @@
-import { useParams, Route, Link } from 'react-router-dom';
+import { useParams, Route, Link, useRouteMatch } from 'react-router-dom';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 import Comments from '../components/comments/Comments';
 
 const QuoteDetail = () => {
     const params = useParams();
+    const match = useRouteMatch();
 
     // TODO: Remove after implementing db and fetch
     const dummyQuotes = [
@@ -28,10 +29,10 @@ const QuoteDetail = () => {
     return (
         <>
             <HighlightedQuote text={quote.text} author={quote.author} />
-            <Route path='/quotes/:quoteId' exact>
-                <Link className='centered btn--flat' to={`/quotes/${params.quoteId}/comments`}>View Comments</Link>
+            <Route path={match.path} exact>
+                <Link className='centered btn--flat' to={`${match.url}/comments`}>View Comments</Link>
             </Route>
-            <Route path='/quotes/:quoteId/comments'>
+            <Route path={`${match.path}/comments`}>
                 <Comments />
             </Route>
         </>
