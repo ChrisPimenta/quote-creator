@@ -1,5 +1,5 @@
 # quote-creator
-Add quotes to refresh knowledge on react router
+Quotes App which uses react router, using Suspense & dynamic imports for code splitting
 
 
 Initial commit from https://github.com/academind/react-complete-guide-code
