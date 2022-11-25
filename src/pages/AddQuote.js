@@ -4,7 +4,7 @@ import useHttp from "../hooks/use-http";
 import { addQuote } from "../lib/api";
 import { useEffect } from "react";
 
-const AddQuotes = () => {
+const AddQuote = () => {
     const { sendRequest, status } = useHttp(addQuote);
 
     const history = useHistory();
@@ -27,4 +27,4 @@ const AddQuotes = () => {
     )
 }
 
-export default AddQuotes;
+export default AddQuote;

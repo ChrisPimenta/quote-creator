@@ -1,10 +1,11 @@
 import { useParams, Route, Link, useRouteMatch } from 'react-router-dom';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
-import Comments from '../components/comments/Comments';
 import useHttp from '../hooks/use-http';
 import { getSingleQuote } from '../lib/api';
-import { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
+
+const Comments = React.lazy(() => import('../components/comments/Comments'))
 
 const QuoteDetail = () => {
     const params = useParams();
